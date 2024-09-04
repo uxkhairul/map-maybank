@@ -1,0 +1,52 @@
+.map-container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.search-input-box {
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    width: 50%;
+    height: 40px;
+    padding: 0px;
+    border-radius: 3px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    font-size: 14px;
+    outline: none;
+    top: 0.75em;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    position: absolute;
+}
+
+.search-input-box:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    z-index: 2 !important;
+    position: absolute;
+}
+
+.search-input-box input {
+    padding: 0px 12px !important;
+}
+
+.search-input-box span {
+    margin-left: -24px;
+}
+
+.recent-place-dropdown {
+    position: absolute;
+    z-index: 500;
+    background: #ffffff;
+    padding: 14px 20px;
+    right: 0.75em;
+    border-radius: 0.15em;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;
+    margin-top: 4em;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
