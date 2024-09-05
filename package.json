@@ -1,6 +1,8 @@
 {
   "name": "map-maybank",
-  "version": "0.1.0",
+  "author": "Mohd Khairulnizam Bin Haron",
+  "version": "1.0.0",
+  "homepage": "https://www.uxkhairul.com/portfolio/maybank-assessment",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.4.0",

@@ -7,8 +7,8 @@ import {
 } from '@react-google-maps/api';
 import { useRef, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { addLocation } from './redux/locationsSlice';
-import LocationList from './LocationList';
+import { addLocationAsync } from './redux/locationsSlice';
+import LocationList from './components/LocationList';
 import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 
@@ -58,7 +58,7 @@ function App() {
             setInputValue(place.formatted_address);
 
             dispatch(
-                addLocation({
+                addLocationAsync({
                     name: place.name,
                     address: place.formatted_address,
                     lat: newCenter.lat,
