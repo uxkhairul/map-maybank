@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import { addLocationAsync } from './redux/locationsSlice';
 import LocationList from './components/LocationList';
 import { Input } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined, CloseOutlined } from '@ant-design/icons';
 
 function App() {
     const inputRef = useRef(null);
@@ -68,6 +68,13 @@ function App() {
         }
     };
 
+    const handleClearInput = () => {
+        setInputValue('');
+        if (inputRef.current) {
+            inputRef.current.getPlaces().length = 0;
+        }
+    };
+
     const updateMapCenter = (lat, lng) => {
         const newCenter = { lat, lng };
         setCenter(newCenter);
@@ -87,7 +94,16 @@ function App() {
                             value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
                             className='search-input-box'
-                            suffix={<SearchOutlined />}
+                            suffix={
+                                inputValue ? (
+                                    <CloseOutlined
+                                        onClick={handleClearInput}
+                                        className='close-icon'
+                                    />
+                                ) : (
+                                    <SearchOutlined />
+                                )
+                            }
                         />
                     </StandaloneSearchBox>
 

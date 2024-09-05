@@ -52,6 +52,17 @@
     cursor: pointer;
 }
 
+.close-icon {
+    cursor: 'pointer';
+    z-index: 10;
+}
+
+.ant-dropdown-menu-title-content {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 @media only screen and (max-width: 768px) {
     .search-input-box {
         width: 96.5%;
@@ -60,5 +71,9 @@
 
     .recent-place-dropdown {
         margin-top: 8em;
+    }
+
+    .ant-dropdown-menu {
+        width: 90vw;
     }
 }
