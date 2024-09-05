@@ -1,3 +1,7 @@
+body {
+    font-family: Roboto, Arial, sans-serif;
+}
+
 .map-container {
     width: 100vw;
     height: 100vh;
@@ -45,7 +49,6 @@
     padding: 12px 20px;
     right: 0.75em;
     border-radius: 0.2em;
-    font-family: Roboto, Arial, sans-serif;
     font-size: 14px;
     margin-top: 4em;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
@@ -63,6 +66,14 @@
     text-overflow: ellipsis;
 }
 
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
 @media only screen and (max-width: 768px) {
     .search-input-box {
         width: 96.5%;
@@ -74,6 +85,6 @@
     }
 
     .ant-dropdown-menu {
-        width: 90vw;
+        width: 85vw;
     }
 }

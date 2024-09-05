@@ -8,9 +8,10 @@ import {
 import { useRef, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addLocationAsync } from './redux/locationsSlice';
-import LocationList from './components/LocationList';
 import { Input } from 'antd';
 import { SearchOutlined, CloseOutlined } from '@ant-design/icons';
+import LocationList from './components/LocationList';
+import LoadingAnimation from './components/LoadingAnimation';
 
 function App() {
     const inputRef = useRef(null);
@@ -81,9 +82,15 @@ function App() {
         setMarkerPosition(newCenter);
     };
 
+    const handleSetInputValue = (value) => {
+        setInputValue(value);
+    };
+
     return (
-        <div>
-            {isLoaded && (
+        <div className='app-container'>
+            {!isLoaded ? (
+                <LoadingAnimation loadingCaption='Loading map...' />
+            ) : (
                 <>
                     <StandaloneSearchBox
                         onLoad={(ref) => (inputRef.current = ref)}
@@ -107,7 +114,10 @@ function App() {
                         />
                     </StandaloneSearchBox>
 
-                    <LocationList updateMapCenter={updateMapCenter} />
+                    <LocationList
+                        updateMapCenter={updateMapCenter}
+                        setInputValue={handleSetInputValue}
+                    />
 
                     <GoogleMap
                         zoom={10}

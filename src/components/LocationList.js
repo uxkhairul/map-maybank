@@ -2,11 +2,12 @@ import { useSelector } from 'react-redux';
 import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Space, Menu, Badge } from 'antd';
 
-function LocationList({ updateMapCenter }) {
+function LocationList({ updateMapCenter, setInputValue }) {
     const locations = useSelector((state) => state.locations.locations);
 
-    const handleClick = (lat, lng) => {
+    const handleClick = (lat, lng, address) => {
         updateMapCenter(lat, lng);
+        setInputValue(address);
     };
 
     const menu = (
@@ -15,7 +16,9 @@ function LocationList({ updateMapCenter }) {
                 locations.map((loc, index) => (
                     <Menu.Item
                         key={index}
-                        onClick={() => handleClick(loc.lat, loc.lng)}
+                        onClick={() =>
+                            handleClick(loc.lat, loc.lng, loc.address)
+                        }
                     >
                         {loc.address}
                     </Menu.Item>
