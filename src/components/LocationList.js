@@ -10,10 +10,13 @@ function LocationList({ updateMapCenter, setInputValue }) {
         setInputValue(address);
     };
 
+    // Set the last search to show on the top of the list
+    const locationsList = [...locations].reverse();
+
     const menu = (
         <Menu>
-            {locations.length > 0 ? (
-                locations.map((loc, index) => (
+            {locationsList.length > 0 ? (
+                locationsList.map((loc, index) => (
                     <Menu.Item
                         key={index}
                         onClick={() =>
